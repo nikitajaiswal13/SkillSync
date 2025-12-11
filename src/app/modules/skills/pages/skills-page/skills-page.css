@@ -1,46 +1,77 @@
 .skills-container {
+  max-width: 700px;   /* Center the content like real dashboards */
+  margin: 0 auto;     /* Centers horizontally */
   padding: 20px;
 }
 
-.header {
+/* Title */
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Add section */
+.add-section {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-.add-box {
-  display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-.add-box input {
-  flex: 1;
+.add-section input {
+  flex: 1;   /* Make input expand naturally */
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+/* Empty state */
+.empty-state {
+  margin-top: 80px;
+  text-align: center;
+  color: #666;
 }
 
-.skill-card {
-  padding: 16px;
-  border-radius: 10px;
+.empty-state mat-icon {
+  font-size: 56px;
+  height: 56px;
+  width: 56px;
+  color: #2F88B1;
+  margin-bottom: 10px;
 }
 
-.card-header {
+
+.empty-state p {
+  font-size: 18px;
+  margin: 10px 0 4px;
+}
+
+/* Skills list */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
 }
 
-.skill-subtitle {
-  color: #666;
-  font-size: 13px;
-  margin-top: 4px;
+.skill-item .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-icon {
+  color: #2F88B1;
 }

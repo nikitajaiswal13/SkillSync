@@ -17,9 +17,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ProfileRoutingModule,
     FormsModule,
-MatCardModule,
-MatIconModule,
-MatButtonModule
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class ProfileModule { }

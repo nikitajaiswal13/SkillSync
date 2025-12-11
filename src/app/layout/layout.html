@@ -2,60 +2,70 @@
 
   <!-- SIDEBAR -->
   <mat-sidenav #sidenav mode="side" opened class="sidenav">
-
     <mat-nav-list>
 
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
         <mat-icon class="icon">dashboard</mat-icon>
         <span>Dashboard</span>
       </a>
 
-      <a mat-list-item routerLink="/skills">
+      <a mat-list-item routerLink="/skills" routerLinkActive="active-link">
         <mat-icon class="icon">school</mat-icon>
         <span>Skills</span>
       </a>
 
-      <a mat-list-item routerLink="/projects">
+      <a mat-list-item routerLink="/projects" routerLinkActive="active-link">
         <mat-icon class="icon">work</mat-icon>
         <span>Projects</span>
       </a>
 
-      <a mat-list-item routerLink="/certifications">
+      <a mat-list-item routerLink="/certifications" routerLinkActive="active-link">
         <mat-icon class="icon">verified</mat-icon>
         <span>Certifications</span>
       </a>
 
-      <a mat-list-item routerLink="/profile">
+      <a mat-list-item routerLink="/profile" routerLinkActive="active-link">
         <mat-icon class="icon">person</mat-icon>
         <span>Profile</span>
       </a>
 
     </mat-nav-list>
-
   </mat-sidenav>
 
 
-  <!-- MAIN CONTENT -->
-  <mat-sidenav-content>
+  <!-- MAIN CONTENT WRAPPER (FIX) -->
+  <mat-sidenav-content class="content-wrapper">
 
     <!-- TOPBAR -->
     <mat-toolbar color="primary" class="toolbar">
-
       <button mat-icon-button class="mobile-toggle" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
 
-      <span class="title">SkillSync</span>
+      <div class="logo" routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>SkillSync</span>
+      </div>
 
       <span class="spacer"></span>
 
-      <mat-icon>account_circle</mat-icon>
+      <a routerLink="/profile" class="profile-icon">
+        <mat-icon>account_circle</mat-icon>
+      </a>
     </mat-toolbar>
 
-    <!-- PAGE CONTENT -->
+    <!-- CONTENT AREA -->
     <div class="content">
       <router-outlet></router-outlet>
     </div>
+
+    <!-- FOOTER (CORRECT PLACE) -->
+    <mat-toolbar class="footer-toolbar" role="contentinfo">
+      <a href="https://www.linkedin.com" target="_blank" class="footer-link">
+        © SkillSync 2025. Developed by Nikita Jaiswal
+      </a>
+    </mat-toolbar>
+
 
   </mat-sidenav-content>
 

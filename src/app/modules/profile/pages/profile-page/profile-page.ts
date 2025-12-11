@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '../../../../core/storage';
 
 @Component({
   selector: 'app-profile-page',
@@ -7,19 +8,22 @@ import { Component } from '@angular/core';
   styleUrl: './profile-page.css',
 })
 export class ProfilePage {
-    showEdit = false;
 
-  // Default profile details
-  name = 'Your Name';
-  email = 'your@email.com';
-  role = 'Frontend Developer';
-  about = 'Write something about yourself here.';
+  profile: any = {};
+  editMode = false;
 
-  toggleEdit() {
-    this.showEdit = !this.showEdit;
+  constructor() {
+    this.loadProfile();
   }
 
-  save() {
-    this.showEdit = false;
+  loadProfile() {
+    const stored = localStorage.getItem('profile');
+    this.profile = stored ? JSON.parse(stored) : {};
   }
+
+  saveProfile() {
+    localStorage.setItem('profile', JSON.stringify(this.profile));
+    this.editMode = false;
+  }
+
 }

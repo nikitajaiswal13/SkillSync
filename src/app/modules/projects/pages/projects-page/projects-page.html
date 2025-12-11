@@ -1,42 +1,52 @@
 <div class="projects-container">
 
-  <div class="header">
-    <h1>My Projects</h1>
-    <button mat-raised-button color="primary" (click)="toggleAdd()">Add Project</button>
+  <h1 class="page-title">Projects</h1>
+
+  <!-- Add new project -->
+  <div class="add-section">
+
+    <input placeholder="Project name" [(ngModel)]="newProject.name" />
+
+    <input placeholder="Project type (e.g., Web App, Mobile App)" [(ngModel)]="newProject.type" />
+
+    <textarea 
+      placeholder="Short description..." 
+      [(ngModel)]="newProject.description">
+    </textarea>
+
+    <button mat-raised-button color="primary" (click)="addProject()">
+      Add Project
+    </button>
+
   </div>
 
-  <!-- Add Project Form -->
-  <div class="add-box" *ngIf="showAdd">
-    <input placeholder="Project title" [(ngModel)]="projectTitle">
-
-    <input placeholder="Short description" [(ngModel)]="projectDesc">
-
-    <input placeholder="Tech stack (comma separated e.g. Angular, TS, HTML)"
-           [(ngModel)]="projectTech">
-
-    <button mat-raised-button color="primary" (click)="addProject()">Save</button>
+  <!-- Empty state -->
+  <div class="empty-state" *ngIf="projects.length === 0">
+    <mat-icon>description</mat-icon>
+    <p>No projects added yet.</p>
+    <span>Start by adding your first project above.</span>
   </div>
 
-  <!-- Projects Grid -->
-  <div class="projects-grid">
-    <mat-card class="project-card" *ngFor="let project of projects; let i = index">
+  <!-- Project List -->
+  <div class="project-list" *ngIf="projects.length > 0">
 
-      <div class="card-header">
-        <h3>{{ project.title }}</h3>
-        <button mat-icon-button color="warn" (click)="deleteProject(i)">
-          <mat-icon>delete</mat-icon>
-        </button>
+    <div class="project-item" *ngFor="let p of projects; let i = index">
+
+      <div class="left">
+        <mat-icon class="project-icon">folder</mat-icon>
+
+        <div>
+          <h3>{{ p.name }}</h3>
+          <p class="type">{{ p.type }}</p>
+          <p class="desc">{{ p.description }}</p>
+        </div>
       </div>
 
-      <p class="project-desc">{{ project.desc }}</p>
+      <button mat-icon-button color="warn" (click)="deleteProject(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
 
-      <div class="tech-chips">
-        <span class="tech-chip" *ngFor="let tech of project.tech">
-          {{ tech }}
-        </span>
-      </div>
-
-    </mat-card>
   </div>
 
 </div>

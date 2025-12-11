@@ -1,27 +1,36 @@
 <div class="skills-container">
 
-  <div class="header">
-    <h1>My Skills</h1>
-    <button mat-raised-button color="primary" (click)="toggleAdd()">Add Skill</button>
+  <!-- Page Header -->
+  <h1 class="page-title">Skills</h1>
+
+  <!-- Add Skill Box -->
+  <div class="add-section">
+    <input 
+      placeholder="Add a new skill..." 
+      [(ngModel)]="newSkill"
+    />
+    <button mat-raised-button color="primary" (click)="addSkill()">Add</button>
   </div>
 
-  <!-- Add Skill Box (toggle, not always visible) -->
-  <div class="add-box" *ngIf="showAdd">
-    <input placeholder="Skill name" [(ngModel)]="newSkill">
-    <button mat-raised-button color="primary" (click)="addSkill()">Save</button>
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="skills.length === 0">
+    <mat-icon>emoji_objects</mat-icon>
+    <p>No skills added yet.</p>
+    <span>Start by adding your first skill above.</span>
   </div>
 
-  <!-- Skills Grid -->
-  <div class="skills-grid">
-    <mat-card class="skill-card" *ngFor="let skill of skills; let i = index">
-      <div class="card-header">
-        <h3>{{ skill }}</h3>
-        <button mat-icon-button color="warn" (click)="deleteSkill(i)">
-          <mat-icon>delete</mat-icon>
-        </button>
+  <!-- Skills List -->
+  <div class="skills-list" *ngIf="skills.length > 0">
+    <div class="skill-item" *ngFor="let skill of skills; let i = index">
+      <div class="left">
+        <mat-icon class="skill-icon">check_circle</mat-icon>
+        <span>{{ skill }}</span>
       </div>
-      <!-- <p class="skill-subtitle">General Skill</p> -->
-    </mat-card>
+
+      <button mat-icon-button color="warn" (click)="deleteSkill(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </div>
 
 </div>

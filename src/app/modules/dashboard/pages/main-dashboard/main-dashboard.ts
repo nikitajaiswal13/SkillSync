@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '../../../../core/storage';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -8,35 +9,19 @@ import { Component } from '@angular/core';
 })
 export class MainDashboard {
   totalSkills = 0;
-totalProjects = 0;
-totalCertifications = 0;
+  totalProjects = 0;
+  totalCertifications = 0;
 
-//   totalSkills = 5;
-// totalProjects = 3;
-// totalCertifications = 4;
-// goalsProgress = 60;
+  constructor(private storage: Storage) { }
 
-// Doughnut Chart
-// skillsChartData = {
-//   labels: ['Frontend', 'Backend', 'DB', 'Other'],
-//   datasets: [
-//     {
-//       data: [40, 20, 25, 15]
-//     }
-//   ]
-// };
+  ngOnInit() {
+    const skills = this.storage.get('skills') || [];
+    const projects = this.storage.get('projects') || [];
+    const certificates = this.storage.get('certifications') || [];
 
-// Bar Chart
-// goalsChartData = {
-//   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-//   datasets: [
-//     {
-//       label: 'Goals Completed',
-//       data: [2, 3, 1, 4, 2, 3, 5]
-//     }
-//   ]
-// };
-
-
+    this.totalSkills = skills.length;
+    this.totalProjects = projects.length;
+    this.totalCertifications = certificates.length;
+  }
 }
 

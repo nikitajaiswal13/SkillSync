@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '../../../../core/storage';
 
 @Component({
   selector: 'app-certifications-page',
@@ -7,39 +8,35 @@ import { Component } from '@angular/core';
   styleUrl: './certifications-page.css',
 })
 export class CertificationsPage {
-    showAdd = false;
 
-  certName = '';
-  certIssuer = '';
-  certYear = '';
 
-  certifications: {
-    name: string,
-    issuer: string,
-    year: string
-  }[] = [];
+  certifications: any[] = [];
+  newCert = { name: '', issuer: '', year: '' };
 
-  toggleAdd() {
-    this.showAdd = !this.showAdd;
+  constructor() {
+    this.loadCerts();
+  }
+
+  loadCerts() {
+    const stored = localStorage.getItem('certifications');
+    this.certifications = stored ? JSON.parse(stored) : [];
+  }
+
+  saveCerts() {
+    localStorage.setItem('certifications', JSON.stringify(this.certifications));
   }
 
   addCertification() {
-    if (!this.certName.trim()) return;
+    if (!this.newCert.name.trim()) return;
 
-    this.certifications.push({
-      name: this.certName.trim(),
-      issuer: this.certIssuer.trim() || 'Unknown',
-      year: this.certYear.trim() || 'Not specified'
-    });
+    this.certifications.push({ ...this.newCert });
+    this.saveCerts();
 
-    // Reset fields
-    this.certName = '';
-    this.certIssuer = '';
-    this.certYear = '';
-    this.showAdd = false;
+    this.newCert = { name: '', issuer: '', year: '' };
   }
 
   deleteCertification(index: number) {
     this.certifications.splice(index, 1);
+    this.saveCerts();
   }
 }

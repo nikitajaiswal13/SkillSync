@@ -1,34 +1,57 @@
 <div class="certs-container">
 
-  <div class="header">
-    <h1>Certifications</h1>
-    <button mat-raised-button color="primary" (click)="toggleAdd()">Add Certification</button>
+  <h1 class="page-title">Certifications</h1>
+
+  <!-- Add new certification -->
+  <div class="add-section">
+
+    <input 
+      placeholder="Certification name"
+      [(ngModel)]="newCert.name"
+    />
+
+    <input 
+      placeholder="Issued by (e.g., Google, Coursera)"
+      [(ngModel)]="newCert.issuer"
+    />
+
+    <input 
+      placeholder="Year (optional)"
+      [(ngModel)]="newCert.year"
+      type="number"
+    />
+
+    <button mat-raised-button color="primary" (click)="addCertification()">
+      Add
+    </button>
   </div>
 
-  <!-- Add Form -->
-  <div class="add-box" *ngIf="showAdd">
-    <input placeholder="Certification Name" [(ngModel)]="certName">
-    <input placeholder="Issued By (Organization)" [(ngModel)]="certIssuer">
-    <input placeholder="Year (e.g., 2023)" [(ngModel)]="certYear">
-
-    <button mat-raised-button color="primary" (click)="addCertification()">Save</button>
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="certifications.length === 0">
+    <mat-icon>workspace_premium</mat-icon>
+    <p>No certifications added yet.</p>
+    <span>Add a new certification using the form above.</span>
   </div>
 
-  <!-- Certification Cards -->
-  <div class="certs-grid">
-    <mat-card class="cert-card" *ngFor="let cert of certifications; let i = index">
+  <!-- Certification List -->
+  <div class="cert-list" *ngIf="certifications.length > 0">
 
-      <div class="card-header">
-        <h3>{{ cert.name }}</h3>
-        <button mat-icon-button color="warn" (click)="deleteCertification(i)">
-          <mat-icon>delete</mat-icon>
-        </button>
+    <div class="cert-item" *ngFor="let c of certifications; let i = index">
+      <div class="left">
+        <mat-icon class="cert-icon">verified</mat-icon>
+
+        <div>
+          <h3>{{ c.name }}</h3>
+          <p class="issuer">{{ c.issuer }}</p>
+          <p class="year" *ngIf="c.year">{{ c.year }}</p>
+        </div>
       </div>
 
-      <p class="issuer">{{ cert.issuer }}</p>
-      <p class="year">{{ cert.year }}</p>
+      <button mat-icon-button color="warn" (click)="deleteCertification(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
 
-    </mat-card>
   </div>
 
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '../../../../core/storage';
 
 @Component({
   selector: 'app-projects-page',
@@ -8,43 +9,34 @@ import { Component } from '@angular/core';
 })
 export class ProjectsPage {
 
-  showAdd = false;
-  projectTitle = '';
-  projectDesc = '';
-  projectTech = '';
+  projects: any[] = [];
+  newProject = { name: '', type: '', description: '' };
 
-  projects: { 
-    title: string; 
-    desc: string; 
-    tech: string[] 
-  }[] = [];
+  constructor() {
+    this.loadProjects();
+  }
 
-  toggleAdd() {
-    this.showAdd = !this.showAdd;
+  loadProjects() {
+    const stored = localStorage.getItem('projects');
+    this.projects = stored ? JSON.parse(stored) : [];
+  }
+
+  saveProjects() {
+    localStorage.setItem('projects', JSON.stringify(this.projects));
   }
 
   addProject() {
-    if (!this.projectTitle.trim()) return;
+    if (!this.newProject.name.trim()) return;
 
-    const techArray = this.projectTech
-      .split(',')
-      .map(t => t.trim())
-      .filter(t => t.length > 0);
+    this.projects.push({ ...this.newProject });
+    this.saveProjects();
 
-    this.projects.push({
-      title: this.projectTitle.trim(),
-      desc: this.projectDesc.trim() || 'No description',
-      tech: techArray.length ? techArray : ['General']
-    });
-
-    // Reset fields
-    this.projectTitle = '';
-    this.projectDesc = '';
-    this.projectTech = '';
-    this.showAdd = false;
+    this.newProject = { name: '', type: '', description: '' };
   }
 
-  deleteProject(i: number) {
-    this.projects.splice(i, 1);
+  deleteProject(index: number) {
+    this.projects.splice(index, 1);
+    this.saveProjects();
   }
+
 }

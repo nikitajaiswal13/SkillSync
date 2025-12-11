@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '../core/storage';
 
 @Component({
   selector: 'app-layout',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './layout.css',
 })
 export class Layout {
+
+
 
 }
