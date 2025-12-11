@@ -1,0 +1,71 @@
+/* Smooth background */
+.container {
+  height: 100vh;
+  background: #fafafa;
+}
+
+/* SIDEBAR */
+.sidenav {
+  width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding-top: 10px;
+}
+
+/* Sidebar items */
+mat-nav-list a {
+  border-radius: 8px;
+  margin: 6px 8px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #4b5563; /* grey-700 */
+}
+
+mat-nav-list a:hover {
+  background: #f3f4f6; /* soft hover */
+}
+
+.active-link {
+  background: #e0e7ff !important; /* indigo-100 */
+  color: #4338ca !important; /* indigo-700 */
+  font-weight: 600;
+}
+
+.icon {
+  margin-right: 14px;
+  color: #6366f1; /* Indigo accent */
+}
+
+/* TOPBAR */
+.toolbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4f46e5; /* Indigo */
+}
+
+/* MAIN CONTENT */
+.content {
+  padding: 24px;
+}
+
+/* Responsive */
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: inline-flex;
+  }
+}
