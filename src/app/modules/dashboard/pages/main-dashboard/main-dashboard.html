@@ -1,1 +1,80 @@
-<p>main-dashboard works!</p>
+<div class="dashboard-container">
+
+  <h1>Welcome to SkillSync</h1>
+  <p class="subtitle">Your skill & project tracking dashboard</p>
+
+  <div class="card-grid">
+
+    <mat-card class="dash-card">
+      <h2>Total Skills</h2>
+      <p>{{ totalSkills }}</p>
+    </mat-card>
+
+    <mat-card class="dash-card">
+      <h2>Total Projects</h2>
+      <p>{{ totalProjects }}</p>
+    </mat-card>
+
+    <mat-card class="dash-card">
+      <h2>Total Certifications</h2>
+      <p>{{ totalCertifications }}</p>
+    </mat-card>
+
+  </div>
+
+</div>
+
+<!-- <div class="dashboard-container">
+
+  Summary Cards
+  <div class="card-grid">
+
+    <mat-card class="summary-card">
+      <mat-icon>school</mat-icon>
+      <h2>Skills</h2>
+      <p>{{ totalSkills }}</p>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <mat-icon>work</mat-icon>
+      <h2>Projects</h2>
+      <p>{{ totalProjects }}</p>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <mat-icon>verified</mat-icon>
+      <h2>Certifications</h2>
+      <p>{{ totalCertifications }}</p>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <mat-icon>flag</mat-icon>
+      <h2>Goals</h2>
+      <p>{{ goalsProgress }}%</p>
+    </mat-card>
+
+  </div>
+
+  Charts Section
+  <div class="charts-row">
+
+    <mat-card class="chart-card">
+      <h3>Skills Distribution</h3>
+      <canvas baseChart 
+        [data]="skillsChartData"
+        [type]="'doughnut'">
+      </canvas>
+    </mat-card>
+
+    <mat-card class="chart-card">
+      <h3>Weekly Goals Progress</h3>
+      <canvas baseChart 
+        [data]="goalsChartData"
+        [type]="'bar'">
+      </canvas>
+    </mat-card>
+
+  </div>
+
+</div> -->
+

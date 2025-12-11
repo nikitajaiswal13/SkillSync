@@ -1,1 +1,27 @@
-<p>skills-page works!</p>
+<div class="skills-container">
+
+  <div class="header">
+    <h1>My Skills</h1>
+    <button mat-raised-button color="primary" (click)="toggleAdd()">Add Skill</button>
+  </div>
+
+  <!-- Add Skill Box (toggle, not always visible) -->
+  <div class="add-box" *ngIf="showAdd">
+    <input placeholder="Skill name" [(ngModel)]="newSkill">
+    <button mat-raised-button color="primary" (click)="addSkill()">Save</button>
+  </div>
+
+  <!-- Skills Grid -->
+  <div class="skills-grid">
+    <mat-card class="skill-card" *ngFor="let skill of skills; let i = index">
+      <div class="card-header">
+        <h3>{{ skill }}</h3>
+        <button mat-icon-button color="warn" (click)="deleteSkill(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <p class="skill-subtitle">General Skill</p>
+    </mat-card>
+  </div>
+
+</div>

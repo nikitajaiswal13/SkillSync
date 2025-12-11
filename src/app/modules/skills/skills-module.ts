@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SkillsRoutingModule } from './skills-routing-module';
+import { SkillsRoutingModule } from './skills-routing.module';
 import { SkillsPage } from './pages/skills-page/skills-page';
 
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -11,7 +15,11 @@ import { SkillsPage } from './pages/skills-page/skills-page';
   ],
   imports: [
     CommonModule,
-    SkillsRoutingModule
+    SkillsRoutingModule,
+    FormsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class SkillsModule { }
