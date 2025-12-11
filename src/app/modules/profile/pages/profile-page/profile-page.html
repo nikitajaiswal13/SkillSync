@@ -1,1 +1,39 @@
-<p>profile-page works!</p>
+<div class="profile-container">
+
+  <mat-card class="profile-card">
+
+    <div class="profile-header">
+      <div class="avatar">
+        <mat-icon>person</mat-icon>
+      </div>
+
+      <div class="info">
+        <h2>{{ name }}</h2>
+        <p class="email">{{ email }}</p>
+        <p class="role">{{ role }}</p>
+      </div>
+
+      <button mat-icon-button color="primary" (click)="toggleEdit()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+
+    <!-- Edit Section -->
+    <div class="edit-section" *ngIf="showEdit">
+      <input placeholder="Name" [(ngModel)]="name">
+      <input placeholder="Email" [(ngModel)]="email">
+      <input placeholder="Role" [(ngModel)]="role">
+      <textarea placeholder="About Me" [(ngModel)]="about"></textarea>
+
+      <button mat-raised-button color="primary" (click)="save()">Save</button>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+      <h3>About</h3>
+      <p>{{ about }}</p>
+    </div>
+
+  </mat-card>
+
+</div>

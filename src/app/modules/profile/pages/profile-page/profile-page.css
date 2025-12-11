@@ -1,0 +1,65 @@
+.profile-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #e3e3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.avatar mat-icon {
+  font-size: 40px;
+  color: #4a4ae6;
+}
+
+.info h2 {
+  margin: 0;
+}
+
+.email, .role {
+  margin: 0;
+  color: #666;
+}
+
+.edit-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-section input,
+.edit-section textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.about-section {
+  margin-top: 25px;
+}
+
+.about-section h3 {
+  margin-bottom: 8px;
+}

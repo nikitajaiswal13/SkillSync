@@ -1,1 +1,34 @@
-<p>certifications-page works!</p>
+<div class="certs-container">
+
+  <div class="header">
+    <h1>Certifications</h1>
+    <button mat-raised-button color="primary" (click)="toggleAdd()">Add Certification</button>
+  </div>
+
+  <!-- Add Form -->
+  <div class="add-box" *ngIf="showAdd">
+    <input placeholder="Certification Name" [(ngModel)]="certName">
+    <input placeholder="Issued By (Organization)" [(ngModel)]="certIssuer">
+    <input placeholder="Year (e.g., 2023)" [(ngModel)]="certYear">
+
+    <button mat-raised-button color="primary" (click)="addCertification()">Save</button>
+  </div>
+
+  <!-- Certification Cards -->
+  <div class="certs-grid">
+    <mat-card class="cert-card" *ngFor="let cert of certifications; let i = index">
+
+      <div class="card-header">
+        <h3>{{ cert.name }}</h3>
+        <button mat-icon-button color="warn" (click)="deleteCertification(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      <p class="issuer">{{ cert.issuer }}</p>
+      <p class="year">{{ cert.year }}</p>
+
+    </mat-card>
+  </div>
+
+</div>
