@@ -5,14 +5,31 @@
   <!-- Add new project -->
   <div class="add-section">
 
-    <input placeholder="Project name" [(ngModel)]="newProject.name" />
+    <input 
+      placeholder="Project name" 
+      [(ngModel)]="newProject.name"
+    />
 
-    <input placeholder="Project type (e.g., Web App, Mobile App)" [(ngModel)]="newProject.type" />
+    <input 
+      placeholder="Project type (e.g., Web App, Mobile App)" 
+      [(ngModel)]="newProject.type"
+    />
 
     <textarea 
       placeholder="Short description..." 
       [(ngModel)]="newProject.description">
     </textarea>
+
+    <!-- NEW FIELDS -->
+    <input 
+      placeholder="GitHub link (optional)" 
+      [(ngModel)]="newProject.github"
+    />
+
+    <input 
+      placeholder="Live demo link (optional)" 
+      [(ngModel)]="newProject.live"
+    />
 
     <button mat-raised-button color="primary" (click)="addProject()">
       Add Project
@@ -39,12 +56,27 @@
           <h3>{{ p.name }}</h3>
           <p class="type">{{ p.type }}</p>
           <p class="desc">{{ p.description }}</p>
+
+          <!-- NEW LINKS SECTION -->
+          <div class="links">
+
+            <a *ngIf="p.github" [href]="p.github" target="_blank">
+              <mat-icon>code</mat-icon> GitHub
+            </a>
+
+            <a *ngIf="p.live" [href]="p.live" target="_blank">
+              <mat-icon>open_in_new</mat-icon> Live Demo
+            </a>
+
+          </div>
+
         </div>
       </div>
 
       <button mat-icon-button color="warn" (click)="deleteProject(i)">
         <mat-icon>delete</mat-icon>
       </button>
+
     </div>
 
   </div>

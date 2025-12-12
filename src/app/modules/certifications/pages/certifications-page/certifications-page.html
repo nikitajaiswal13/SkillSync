@@ -21,9 +21,17 @@
       type="number"
     />
 
+    <!-- FILE UPLOAD -->
+    <input 
+      type="file"
+      accept=".pdf, .jpg, .jpeg, .png"
+      (change)="handleFile($event)"
+    />
+
     <button mat-raised-button color="primary" (click)="addCertification()">
       Add
     </button>
+
   </div>
 
   <!-- Empty State -->
@@ -37,6 +45,7 @@
   <div class="cert-list" *ngIf="certifications.length > 0">
 
     <div class="cert-item" *ngFor="let c of certifications; let i = index">
+
       <div class="left">
         <mat-icon class="cert-icon">verified</mat-icon>
 
@@ -44,12 +53,21 @@
           <h3>{{ c.name }}</h3>
           <p class="issuer">{{ c.issuer }}</p>
           <p class="year" *ngIf="c.year">{{ c.year }}</p>
+
+          <!-- VIEW CERTIFICATE LINK -->
+          <a *ngIf="c.file" 
+             [href]="c.file" 
+             target="_blank" 
+             class="view-link">
+             <mat-icon>visibility</mat-icon> View Certificate
+          </a>
         </div>
       </div>
 
       <button mat-icon-button color="warn" (click)="deleteCertification(i)">
         <mat-icon>delete</mat-icon>
       </button>
+
     </div>
 
   </div>

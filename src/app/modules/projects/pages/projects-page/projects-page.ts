@@ -9,8 +9,17 @@ import { Storage } from '../../../../core/storage';
 })
 export class ProjectsPage {
 
+ 
   projects: any[] = [];
-  newProject = { name: '', type: '', description: '' };
+
+  // UPDATED: Added github + live
+  newProject = { 
+    name: '', 
+    type: '', 
+    description: '',
+    github: '',
+    live: ''
+  };
 
   constructor() {
     this.loadProjects();
@@ -28,10 +37,20 @@ export class ProjectsPage {
   addProject() {
     if (!this.newProject.name.trim()) return;
 
+    // Store the project
     this.projects.push({ ...this.newProject });
+
+    // Save to LocalStorage
     this.saveProjects();
 
-    this.newProject = { name: '', type: '', description: '' };
+    // Reset form
+    this.newProject = { 
+      name: '', 
+      type: '', 
+      description: '',
+      github: '',
+      live: ''
+    };
   }
 
   deleteProject(index: number) {

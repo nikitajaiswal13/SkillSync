@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Storage } from '../../../../core/storage';
 
 @Component({
   selector: 'app-certifications-page',
@@ -9,12 +8,30 @@ import { Storage } from '../../../../core/storage';
 })
 export class CertificationsPage {
 
-
   certifications: any[] = [];
-  newCert = { name: '', issuer: '', year: '' };
+
+  newCert = { 
+    name: '', 
+    issuer: '', 
+    year: '',
+    file: ''   // Base64 file
+  };
 
   constructor() {
     this.loadCerts();
+  }
+
+  handleFile(event: any) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.newCert.file = reader.result as string;
+    };
+
+    reader.readAsDataURL(file);
   }
 
   loadCerts() {
@@ -32,7 +49,7 @@ export class CertificationsPage {
     this.certifications.push({ ...this.newCert });
     this.saveCerts();
 
-    this.newCert = { name: '', issuer: '', year: '' };
+    this.newCert = { name: '', issuer: '', year: '', file: '' };
   }
 
   deleteCertification(index: number) {

@@ -4,10 +4,12 @@
   padding: 20px;
 }
 
+/* Title */
 .page-title {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: #111827;
 }
 
 /* Add Section */
@@ -21,15 +23,16 @@
 .add-section input {
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
   width: 100%;
+  font-size: 14px;
 }
 
 /* Empty State */
 .empty-state {
   margin-top: 60px;
   text-align: center;
-  color: #666;
+  color: #6b7280;
 }
 
 .empty-state mat-icon {
@@ -54,28 +57,88 @@
   padding: 16px;
   border-radius: 10px;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
-.cert-icon {
+/* .cert-icon {
   color: #2F88B1;
   margin-right: 12px;
+  font-size: 34px;
+} */
+.cert-icon {
+  font-size: 34px;
+  color: #2F88B1;
+  margin-right: 12px;
+  line-height: 1;
+  height: 34px;           /* ensure visible area */
+  width: 34px;
+  display: flex;          /* prevent clipping */
+  align-items: center;
 }
+
 
 .cert-item h3 {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
+  color: #111827;
 }
 
 .issuer {
   font-size: 14px;
-  color: #666;
+  color: #6b7280;
   margin-top: 4px;
 }
 
 .year {
   font-size: 14px;
-  color: #444;
+  color: #374151;
   margin-top: 2px;
 }
+
+/* View Certificate Link */
+.view-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.view-link mat-icon {
+  font-size: 18px;
+}
+
+.view-link:hover {
+  text-decoration: underline;
+}
+
+.add-section input[type="file"] {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+}
+
+.add-section input[type="file"]:hover {
+  border-color: #2F88B1;
+  background: #f3f4f6;
+}
+
+.add-section input[type="file"]::-webkit-file-upload-button {
+  background: #2F88B1;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
