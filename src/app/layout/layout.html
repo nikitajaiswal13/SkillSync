@@ -1,8 +1,12 @@
 <mat-sidenav-container class="container">
 
   <!-- SIDEBAR -->
-  <mat-sidenav #sidenav mode="side" opened class="sidenav">
-    <mat-nav-list>
+  <!-- <mat-sidenav #sidenav mode="side" opened class="sidenav"> -->
+  <!-- <mat-sidenav #sidenav mode="over" opened class="sidenav"> -->
+  <mat-sidenav #sidenav class="sidenav mobile-sidenav" [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile">
+
+
+    <!-- <mat-nav-list>
 
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
         <mat-icon class="icon">dashboard</mat-icon>
@@ -29,7 +33,52 @@
         <span>Profile</span>
       </a>
 
-    </mat-nav-list>
+    </mat-nav-list> -->
+<mat-nav-list>
+
+  <a mat-list-item
+     routerLink="/dashboard"
+     routerLinkActive="active-link"
+     (click)="onNavClick()">
+    <mat-icon class="icon">dashboard</mat-icon>
+    <span>Dashboard</span>
+  </a>
+
+  <a mat-list-item
+     routerLink="/skills"
+     routerLinkActive="active-link"
+     (click)="onNavClick()">
+    <mat-icon class="icon">school</mat-icon>
+    <span>Skills</span>
+  </a>
+
+  <a mat-list-item
+     routerLink="/projects"
+     routerLinkActive="active-link"
+     (click)="onNavClick()">
+    <mat-icon class="icon">work</mat-icon>
+    <span>Projects</span>
+  </a>
+
+  <a mat-list-item
+     routerLink="/certifications"
+     routerLinkActive="active-link"
+     (click)="onNavClick()">
+    <mat-icon class="icon">verified</mat-icon>
+    <span>Certifications</span>
+  </a>
+
+  <a mat-list-item
+     routerLink="/profile"
+     routerLinkActive="active-link"
+     (click)="onNavClick()">
+    <mat-icon class="icon">person</mat-icon>
+    <span>Profile</span>
+  </a>
+
+</mat-nav-list>
+
+
   </mat-sidenav>
 
 
@@ -59,14 +108,14 @@
     </div>
 
     <!-- FOOTER -->
-<mat-toolbar class="footer-toolbar" role="contentinfo">
+    <mat-toolbar class="footer-toolbar" role="contentinfo">
 
-  <a routerLink="/dashboard" class="footer-link">© SkillSync 2025.&nbsp; </a>
-  Developed by&nbsp;
-  <a href="https://nikitajaiswal13.netlify.app/home" target="_blank" class="footer-link">
-    <b>Nikita Jaiswal</b>
-  </a>
-</mat-toolbar>
+      <a routerLink="/dashboard" class="footer-link">© SkillSync 2025.&nbsp; </a>
+      Developed by&nbsp;
+      <a href="https://nikitajaiswal13.netlify.app/home" target="_blank" class="footer-link">
+        <b>Nikita Jaiswal</b>
+      </a>
+    </mat-toolbar>
 
 
   </mat-sidenav-content>
