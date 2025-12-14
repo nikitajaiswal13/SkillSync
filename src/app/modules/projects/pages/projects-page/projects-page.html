@@ -5,31 +5,15 @@
   <!-- Add new project -->
   <div class="add-section">
 
-    <input 
-      placeholder="Project name" 
-      [(ngModel)]="newProject.name"
-    />
+    <input placeholder="Project name" [(ngModel)]="newProject.name" />
 
-    <input 
-      placeholder="Project type (e.g., Web App, Mobile App)" 
-      [(ngModel)]="newProject.type"
-    />
+    <input placeholder="Project type (e.g., Web App, Mobile App)" [(ngModel)]="newProject.type" />
 
-    <textarea 
-      placeholder="Short description..." 
-      [(ngModel)]="newProject.description">
-    </textarea>
+    <input placeholder="GitHub link (optional)" [(ngModel)]="newProject.github" />
+    
+    <input placeholder="Live demo link (optional)" [(ngModel)]="newProject.live" />
 
-    <!-- NEW FIELDS -->
-    <input 
-      placeholder="GitHub link (optional)" 
-      [(ngModel)]="newProject.github"
-    />
-
-    <input 
-      placeholder="Live demo link (optional)" 
-      [(ngModel)]="newProject.live"
-    />
+    <textarea placeholder="Short description..." [(ngModel)]="newProject.description"></textarea>
 
     <button mat-raised-button color="primary" (click)="addProject()">
       Add Project
@@ -57,7 +41,6 @@
           <p class="type">{{ p.type }}</p>
           <p class="desc">{{ p.description }}</p>
 
-          <!-- NEW LINKS SECTION -->
           <div class="links">
 
             <a *ngIf="p.github" [href]="p.github" target="_blank">

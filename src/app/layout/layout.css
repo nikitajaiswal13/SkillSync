@@ -1,16 +1,13 @@
-/* ROOT CONTAINER */
 .container {
   height: 100vh;
   background: #fafafa;
-  overflow-x: hidden; /* FIX horizontal scroll */
 }
 
-/* MAIN CONTENT WRAPPER */
 .content-wrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow-x: hidden; /* Prevent extra scroll */
+  overflow-x: hidden;
 }
 
 /* TOPBAR */
@@ -18,7 +15,6 @@
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   padding: 0 20px;
-  overflow: hidden; /* Prevents toolbar overflow */
 }
 
 .title {
@@ -33,22 +29,18 @@
   background: #ffffff;
   border-right: 1px solid #e5e7eb;
   padding-top: 10px;
-  overflow-x: hidden; /* Fix overflow issue */
+  /* overflow-x: hidden;  */
 }
 
-/* Sidebar nav items */
-/* Sidebar nav items (FIXED VERSION) */
+
 mat-nav-list a {
   display: flex;
   align-items: center;
   white-space: nowrap;
   overflow: hidden;
-
-  padding: 12px 10px;   /* reduced horizontal padding */
-  margin: 6px 4px;      /* reduced horizontal margin */
-
-  width: calc(100% - 8px);  /* ensure item NEVER exceeds sidenav width */
-
+  padding: 12px 10px;
+  margin: 6px 4px;   
+  width: calc(100% - 8px);
   border-radius: 8px;
   font-size: 15px;
   font-weight: 500;
@@ -81,10 +73,10 @@ mat-nav-list a:hover {
 
 /* CONTENT AREA */
 .content {
-  flex: 1; /* Pushes footer to bottom */
+  flex: 1; 
   padding: 24px;
-  overflow-y: auto; /* Allow page content scroll */
-  overflow-x: hidden; /* Prevent sidebar shift */
+  overflow-y: auto; 
+  overflow-x: hidden; 
 }
 
 /* RESPONSIVE */
@@ -102,14 +94,13 @@ mat-nav-list a:hover {
   }
 }
 
-/* GLOBAL FOOTER */
 .footer-toolbar {
   justify-content: center;
   font-size: 14px;
   opacity: 0.9;
   background: #ffffff;
   border-top: 1px solid #e5e7eb;
-  overflow: hidden; /* Prevent footer overflow */
+  overflow: hidden; 
 }
 
 .footer-link {
@@ -123,7 +114,6 @@ mat-nav-list a:hover {
 }
 
 
-/* ENSURE MATERIAL CONTENT DOESN’T OVERFLOW */
 mat-sidenav-content {
   overflow-x: hidden !important;
 }
@@ -131,7 +121,6 @@ mat-sidenav-content {
 .profile-icon {
   cursor: pointer;
   text-decoration: none;
-  /* color: inherit; */
    color: #2F88B1;
 }
 

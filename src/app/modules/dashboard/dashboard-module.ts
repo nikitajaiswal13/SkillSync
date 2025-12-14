@@ -44,7 +44,6 @@ import { NgChartsModule } from 'ng2-charts';
     DashboardRoutingModule,
     MatCardModule,        
     MatIconModule,
-    // NgChartsModule  
   ]
 })
 export class DashboardModule { }

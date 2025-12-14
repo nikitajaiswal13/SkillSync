@@ -12,7 +12,6 @@ export class ProjectsPage {
  
   projects: any[] = [];
 
-  // UPDATED: Added github + live
   newProject = { 
     name: '', 
     type: '', 
@@ -36,14 +35,10 @@ export class ProjectsPage {
 
   addProject() {
     if (!this.newProject.name.trim()) return;
-
-    // Store the project
     this.projects.push({ ...this.newProject });
 
-    // Save to LocalStorage
     this.saveProjects();
 
-    // Reset form
     this.newProject = { 
       name: '', 
       type: '', 

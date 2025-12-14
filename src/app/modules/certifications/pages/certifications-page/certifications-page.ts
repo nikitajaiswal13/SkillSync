@@ -14,7 +14,7 @@ export class CertificationsPage {
     name: '', 
     issuer: '', 
     year: '',
-    file: ''   // Base64 file
+    file: ''   
   };
 
   constructor() {

@@ -5,28 +5,13 @@
   <!-- Add new certification -->
   <div class="add-section">
 
-    <input 
-      placeholder="Certification name"
-      [(ngModel)]="newCert.name"
-    />
+    <input placeholder="Certification name" [(ngModel)]="newCert.name" />
 
-    <input 
-      placeholder="Issued by (e.g., Google, Coursera)"
-      [(ngModel)]="newCert.issuer"
-    />
+    <input placeholder="Issued by (e.g., Google, Coursera)" [(ngModel)]="newCert.issuer" />
 
-    <input 
-      placeholder="Year (optional)"
-      [(ngModel)]="newCert.year"
-      type="number"
-    />
+    <input placeholder="Year (optional)" [(ngModel)]="newCert.year" type="number" />
 
-    <!-- FILE UPLOAD -->
-    <input 
-      type="file"
-      accept=".pdf, .jpg, .jpeg, .png"
-      (change)="handleFile($event)"
-    />
+    <input type="file" accept=".pdf, .jpg, .jpeg, .png" (change)="handleFile($event)" />
 
     <button mat-raised-button color="primary" (click)="addCertification()">
       Add
@@ -54,12 +39,8 @@
           <p class="issuer">{{ c.issuer }}</p>
           <p class="year" *ngIf="c.year">{{ c.year }}</p>
 
-          <!-- VIEW CERTIFICATE LINK -->
-          <a *ngIf="c.file" 
-             [href]="c.file" 
-             target="_blank" 
-             class="view-link">
-             <mat-icon>visibility</mat-icon> View Certificate
+          <a *ngIf="c.file" [href]="c.file" target="_blank" class="view-link">
+            <mat-icon>visibility</mat-icon> View Certificate
           </a>
         </div>
       </div>
